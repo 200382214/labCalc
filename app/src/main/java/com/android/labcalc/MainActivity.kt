@@ -14,25 +14,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Numbers
-        tvOne.setOnClickListener { appendOnExpresstion("1", true) }
-        tvTwo.setOnClickListener { appendOnExpresstion("2", true) }
-        tvThree.setOnClickListener { appendOnExpresstion("3", true) }
-        tvFour.setOnClickListener { appendOnExpresstion("4", true) }
-        tvFive.setOnClickListener { appendOnExpresstion("5", true) }
-        tvSix.setOnClickListener { appendOnExpresstion("6", true) }
-        tvSeven.setOnClickListener { appendOnExpresstion("7", true) }
-        tvEight.setOnClickListener { appendOnExpresstion("8", true) }
-        tvNine.setOnClickListener { appendOnExpresstion("9", true) }
-        tvZero.setOnClickListener { appendOnExpresstion("0", true) }
+        tvOne.setOnClickListener { append("1", true) }
+        tvTwo.setOnClickListener { append("2", true) }
+        tvThree.setOnClickListener { append("3", true) }
+        tvFour.setOnClickListener { append("4", true) }
+        tvFive.setOnClickListener { append("5", true) }
+        tvSix.setOnClickListener { append("6", true) }
+        tvSeven.setOnClickListener { append("7", true) }
+        tvEight.setOnClickListener { append("8", true) }
+        tvNine.setOnClickListener { append("9", true) }
+        tvZero.setOnClickListener { append("0", true) }
 
         //Operator
-        tvPlus.setOnClickListener { appendOnExpresstion("+", false) }
+        tvPlus.setOnClickListener { append("+", false) }
 
         tvClear.setOnClickListener {
             tvExpression.text = ""
             tvResult.text = ""
         }
         tvEquals.setOnClickListener {
+
+
             try {
 
                 val expression = ExpressionBuilder(tvExpression.text.toString()).build()
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun appendOnExpresstion(string: String, canClear: Boolean) {
+    fun append(string: String, canClear: Boolean) {
 
         if(tvResult.text.isNotEmpty()){
             tvExpression.text = ""
